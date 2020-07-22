@@ -204,6 +204,7 @@ function! s:MakeDigestBuffer()
     else
       silent execute size." split ++enc= ".escape(name, ' ')
     endif
+    let g:folddigest_buf = bufnr()
   else
     execute winnr.'wincmd w'
   endif
@@ -345,6 +346,35 @@ function! FoldDigest()
   call setreg('a', save_regcont_a, save_regtype_a)
   " Revert undolevels
   let &undolevels = save_undolevels
+endfunction
+
+function! FoldDigestIsOpen() abort
+  if ! exists('g:folddigest_buf')
+    return v:false
+  endif
+
+  let l:buf = getbufinfo(g:folddigest_buf)
+  if l:buf[0].loaded == 1 && l:buf[0].listed == 1
+    return v:true
+  endif
+
+  return v:false
+endfunction
+
+function! FoldDigestClose() abort
+  if ! exists('g:folddigest_buf')
+    return
+  endif
+
+  execute printf('%sbdelete', g:folddigest_buf)
+endfunction
+
+function! FoldDigestToggle() abort
+  if FoldDigestIsOpen()
+    call FoldDigestClose()
+  else
+    call FoldDigest()
+  endif
 endfunction
 
 augroup FoldDigest
