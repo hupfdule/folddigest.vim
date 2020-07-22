@@ -16,6 +16,10 @@ Usage:
     automatically.  If you want to force synchronize, type "r" in a
     FOLDDIGEST buffer.
 
+        :call FoldDigestToggle()
+
+    Toggle FoldDigest on or off.
+
 Options:
 
     'folddigest_options'
