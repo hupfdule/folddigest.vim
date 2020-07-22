@@ -1,0 +1,52 @@
+*folddigest.txt*  Show fold digest tree view
+
+Last Change:    2020-07-22
+
+===============================================================================
+Contents ~
+
+    1. Introduction ............................. |introduction|
+    2. Usage .................................... |usage|
+    3. Options .................................. |options|
+
+===============================================================================
+INTRODUCTION                                                     *Introduction*
+
+Plugin to display an outline of all the folds in the current buffer.
+
+===============================================================================
+USAGE                                                                   *usage*
+
+                                                                   *FoldDigest()*
+:call FoldDigest()                                                            ~
+
+  Open the fold digest window
+
+===============================================================================
+OPTIONS                                                               *options*
+
+                                                          *'folddigest_options'*
+'folddigest_options'                                                          ~
+    string (default "")
+
+        Set string flag which you need.  If you want to use more than two,
+        join by comma.
+
+        flexnumwidth  Narrow line number width as possible.
+        nofoldclose   don't close folds after ":call FoldDigest()".
+        vertical      Use :vsplit for FOLDDIGEST. (default :split)
+
+                                                             *'folddigest_size'*
+'folddigest_size'                                                             ~
+    number (default 0)
+
+  FOLDDIGEST window size.  When 'folddigest_options' has "vertical"
+  flag, this value is interpretted as window height, and doesn't then
+  as window width.  If zero was specified height/width become half of
+  current window.
+
+Example:
+>
+  :let folddigest_options = "vertical,flexnumwidth"
+  :let folddigest_size = 30
+>
