@@ -1,6 +1,3 @@
-This is a mirror of http://www.vim.org/scripts/script.php?script_id=732
-
-Required: Vim 6.2
 
 Usage:
         :call FoldDigest()
@@ -41,3 +38,17 @@ Options:
     ex:
         :let folddigest_options = "vertical,flexnumwidth"
         :let folddigest_size = 30
+
+Requirements:
+
+    Vim 6.2+
+
+Credits:
+
+    This is a fork of https://github.com/vim-scripts/folddigest.vim
+
+    Which in turn is a mirror of
+    http://www.vim.org/scripts/script.php?script_id=732
+
+    The FoldDigestToggle functionality was first introduced in
+    https://github.com/alissa-huskey/folddigest.vim
