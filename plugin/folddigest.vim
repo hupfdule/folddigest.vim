@@ -310,3 +310,5 @@ augroup FoldDigest
   autocmd!
   autocmd BufEnter ==FOLDDIGEST==* call <SID>AutoRefresh()
 augroup END
+
+command! FoldDigestToggle :call FoldDigestToggle()
